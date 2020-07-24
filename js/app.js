@@ -30,19 +30,12 @@ function scrollBar() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-//Back to home
-
-function homeBack() {
-  const home = document.querySelector("#homeButton");
-  home.addEventListener("click");
-}
-
 //SpyScrolling
 
 const links = document.querySelectorAll(".menu_link");
 const sections = document.querySelectorAll(".active-section");
 
-function SpyScrolling() {
+function spyScrolling() {
   let index = sections.length;
 
   while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
@@ -51,5 +44,5 @@ function SpyScrolling() {
   links[index].classList.add("active");
 }
 
-SpyScrolling();
-window.addEventListener("scroll", SpyScrolling);
+spyScrolling();
+window.addEventListener("scroll", spyScrolling);
