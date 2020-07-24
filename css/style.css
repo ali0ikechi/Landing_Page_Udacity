@@ -17,6 +17,7 @@ body {
 
 html {
   font: normal 18px sans-serif;
+  scroll-behavior: smooth;
 }
 
 main {
