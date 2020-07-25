@@ -5,12 +5,13 @@
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 20px 50px;
+    justify-content: space-between;
+    padding: 5px 10px;
     z-index: 10;
     background-color: #24282b;
     border-bottom: 1px solid #454e56;
     opacity: 0.95;
+    font-size: 0.65em;
   }
 }
 
@@ -24,11 +25,11 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
-
     background-color: #24282b;
     border-bottom: 1px solid #454e56;
     opacity: 0.95;
     padding: 20px 50px;
+    font-size: 1em;
   }
 }
 @media (min-width: 1000px) {
@@ -41,7 +42,6 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
-
     background-color: #24282b;
     border-bottom: 1px solid #454e56;
     opacity: 0.95;
