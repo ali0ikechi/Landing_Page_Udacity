@@ -46,3 +46,19 @@ function spyScrolling() {
 
 spyScrolling();
 window.addEventListener("scroll", spyScrolling);
+
+//Dynamic nav bar
+const NavBar = document.getElementById("#nav_link");
+const navCreator = () => {
+  let navUI = "";
+  allSection.forEach((section) => {
+    const ID = section.id;
+    const navData = section.dataset.nav;
+
+    navUI += `<li><a class= "menu_link" href="#${ID}">${navData}</a></li>`;
+  });
+
+  allNav.innerHTML = navUI;
+};
+
+navCreator();
