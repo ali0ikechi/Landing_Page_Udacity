@@ -38,20 +38,31 @@ section {
 
 .main-hero {
   min-height: 50vh;
+  padding: 80px 80px;
   display: block;
 }
 
 @media (max-width: 800px) {
   .main-hero {
     min-height: 600px;
+    padding: 40px 40px;
   }
 }
 
-.image-box {
-  width: 35vh;
-  height: 35vh;
-  display: block;
-  margin: 0 auto;
+@media (min-width: 300px) {
+  .image-box {
+    width: 25vh;
+    height: 25vh;
+    margin: 0px;
+  }
+}
+@media (min-width: 1000px) {
+  .image-box {
+    width: 35vh;
+    height: 35vh;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 img {

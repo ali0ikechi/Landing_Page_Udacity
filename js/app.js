@@ -1,3 +1,33 @@
+//Scroll bar
+window.onscroll = function () {
+  scrollBar();
+};
+
+function scrollBar() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+
+//Dynamic Navbar
+const ul = document.querySelector("#nav_list");
+const section = document.querySelectorAll("section");
+const navbarbuilder = () => {
+  for (let i = 0; i < section.length; i++) {
+    const listelement = document.createElement("li");
+    const linkelement = document.createElement("a");
+    linkelement.className = "menu_link";
+    linkelement.textContent = `Section ${i + 1}`;
+    linkelement.setAttribute("href", `#section${i + 1}`);
+    listelement.appendChild(linkelement);
+    ul.appendChild(listelement);
+  }
+};
+window.addEventListener("DOMContentLoaded", navbarbuilder);
+
 //Scroll to Sections
 const scrollSmooth = () => {
   const navLinks = document.querySelectorAll(".menu_link");
@@ -16,26 +46,11 @@ const scrollSmooth = () => {
 
 scrollSmooth();
 
-//Scroll bar
-window.onscroll = function () {
-  scrollBar();
-};
-
-function scrollBar() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
-
 //SpyScrolling
-
 const links = document.querySelectorAll(".menu_link");
-const sections = document.querySelectorAll(".active-section");
+const sections = document.querySelectorAll("section");
 
-function spyScrolling() {
+function SpyScrolling() {
   let index = sections.length;
 
   while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
@@ -44,21 +59,5 @@ function spyScrolling() {
   links[index].classList.add("active");
 }
 
-spyScrolling();
-window.addEventListener("scroll", spyScrolling);
-
-//Dynamic nav bar
-const NavBar = document.getElementById("#nav_link");
-const navCreator = () => {
-  let navUI = "";
-  allSection.forEach((section) => {
-    const ID = section.id;
-    const navData = section.dataset.nav;
-
-    navUI += `<li><a class= "menu_link" href="#${ID}">${navData}</a></li>`;
-  });
-
-  allNav.innerHTML = navUI;
-};
-
-navCreator();
+SpyScrolling();
+window.addEventListener("scroll", SpyScrolling);
